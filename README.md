@@ -30,7 +30,7 @@ Installation
 
 Easy peasy:
 
-	git clone git://github.com/fbeeper/fBootstrap.git ~/.fBootstrap 
+	git clone git://github.com/corefile/fBootstrap.git ~/.fBootstrap 
 	cd ~/.fBootstrap && ./bootstrap.sh
 
 Pay attention to the installation/configuration process because some questions
