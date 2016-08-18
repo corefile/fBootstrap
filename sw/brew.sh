@@ -28,7 +28,7 @@ echo "Hipsterizing your terminal with homebrewed zsh + Oh my zsh!"
   successfully curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
 echo "Installing homebrew-cask... (easy .app install automation)"
-  successfully brew tap phinze/homebrew-cask
+  successfully brew tap caskroom/cask
   successfully brew install brew-cask
   successfully mkdir -p /usr/local/Library/Taps/my-casks/
   successfully ln -s $SCRIPT_DIR/Casks /usr/local/Library/Taps/my-casks/Casks
