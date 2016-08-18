@@ -17,14 +17,14 @@ fi
 
 
 ################################################################[ GIT ]#########
-echo "1st things 1st... (preconf based on https://github.com/thoughtbot/laptop)"
-  $DOTFILES_DIR/git/git.sh
+# echo "1st things 1st... (preconf based on https://github.com/thoughtbot/laptop)"
+#  $DOTFILES_DIR/git/git.sh
 
 
 ################################################################[ Basic SW ]####
 echo "Installing SW to make my Macbook useful... (thanks to Homebrew)"
   $DOTFILES_DIR/sw/brew.sh
-  $DOTFILES_DIR/sw/brew-dev.sh
+#  $DOTFILES_DIR/sw/brew-dev.sh
   $DOTFILES_DIR/sw/linkbrew.sh
 
 
@@ -37,22 +37,10 @@ echo "Customizin OSX... (inspired by https://github.com/mathiasbynens/dotfiles)"
 echo "Setting RootFS to mount with 'noatime'..."
   successfully sh $DOTFILES_DIR/config/AlwaysMountRootFSWithNoatime_MacOSX.sh
 
-echo "Adding some simple (and personal) customizations to zsh..."
-  successfully ln -s $DOTFILES_DIR/config/fbeeper.zsh ~/.oh-my-zsh/custom/fbeeper.zsh
-  echo "(i) Use ~/.localrc for private customizations"
+# echo "Adding some simple (and personal) customizations to zsh..."
+#  successfully ln -s $DOTFILES_DIR/config/fbeeper.zsh ~/.oh-my-zsh/custom/fbeeper.zsh
+#  echo "(i) Use ~/.localrc for private customizations"
 
-
-################################################################[ Term+Vim ]####
-echo "Installing fMacVim... (notice it pimps Terminal.app)"
-  git clone git://github.com/fbeeper/fMacVim.git ~/.fMacVim
-  cd ~/.fMacVim
-  successfully ./install.sh
-  defaults write org.vim.MacVim MMLastWindowClosedBehavior -int 1
-  defaults write org.vim.MacVim AppleShowAllFiles -bool true
-  defaults write org.vim.MacVim MMOpenInCurrentWindow 1
-  defaults write org.vim.MacVim MMOpenFilesInTabs 1
-  defaults write org.vim.MacVim MMUntitledWindow 0
-  cd $(dirname "$0")
 
 
 ################################################################[ Dock Links ]##
@@ -62,10 +50,8 @@ echo "Run Dropbox to configure its folder..."
 
 echo "Adding some shortcuts to my Dock..."
   $DOTFILES_DIR/util/addFolderToDock.sh /Applications/ Applications
-  $DOTFILES_DIR/util/addFolderToDock.sh /Users/fbeeper/ fbeeper
-  $DOTFILES_DIR/util/addFolderToDock.sh /Users/fbeeper/Projects/ Projects
-  $DOTFILES_DIR/util/addFolderToDock.sh /Users/fbeeper/Dropbox/ Dropbox
-  $DOTFILES_DIR/util/addFolderToDock.sh /Users/fbeeper/Downloads/ Downloads
+  $DOTFILES_DIR/util/addFolderToDock.sh $HOME/Projects/ Projects
+  $DOTFILES_DIR/util/addFolderToDock.sh $HOME/Dropbox/ Dropbox
   killall Dock
 
 
@@ -82,9 +68,6 @@ echo "Add service+shortcut to..."
   cp -r $DOTFILES_DIR/config/screensaver.workflow ~/Library/Services/screensaver.workflow 
   defaults write pbs NSServicesStatus -dict-add '"(null) - MacVim-it - runWorkflowAsService"' '{ "key_equivalent" = "@^~o"; }'
   echo "...open File or Directory on MacVim (Ctrl + Opt + Cmd + O)"
-  cp -r $DOTFILES_DIR/config/MacVim-it.workflow ~/Library/Services/MacVim-it.workflow 
-  defaults write pbs NSServicesStatus -dict-add '"(null) - Start Screensaver (Lock Screen) - runWorkflowAsService"' '{ "key_equivalent" = "@^~l"; }'
-  # http://www.hcs.harvard.edu/~jrus/site/cocoa-text.html (explanation on @^~)
 
 
 ################################################################[ The End ]#####
